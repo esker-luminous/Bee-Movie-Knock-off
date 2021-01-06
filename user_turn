@@ -1,0 +1,19 @@
+try:
+    input()
+except NameError:
+    pass
+
+
+def p1_turn(board, possible_numbers, p1_xo):
+    print('Player 1\'s turn\n')
+
+    choice = input('Choose a space on the board (1-9)\n')
+    while choice.isdigit() == False or int(choice) not in\
+    range(1, 10) or choice not in possible_numbers:
+        print('That is an invalid input!')
+        choice = input('Choose a space on the board (1-9)\n')
+    if int(choice) in range(1, 10):
+        possible_numbers.remove(choice)
+        board.spaces[choice] = p1_xo
+
+    return possible_numbers
